@@ -353,7 +353,10 @@ bool COBD::isValidPID(byte pid)
 
 void COBD::recover()
 {
-	link->sendCommand("\r", 0, 0, 100);
+	// link->sendCommand("\r", 0, 0, 100);
+	// To avoid PANIC StoreProhibited.
+	char buf[32];
+	link->sendCommand("\r", buf, sizeof(buf), 100);	
 }
 
 bool COBD::init(OBD_PROTOCOLS protocol)
