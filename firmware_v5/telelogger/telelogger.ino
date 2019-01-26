@@ -613,6 +613,11 @@ bool initialize(bool wait = false)
 #endif
   }
 
+	#if SERVER_PROTOCOL == PROTOCOL_UDP
+	  // Add header to first datagram.
+	  cache.header(devid);
+	#endif
+
   lastMotionTime = millis();
   state.set(STATE_WORKING);
   return true;
