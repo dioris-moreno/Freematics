@@ -590,6 +590,14 @@ bool initialize(bool wait = false)
   }
 #endif
 
+  // Use Device ID as VIN if not available.
+  if (strlen(vin) == 0)
+  {
+    strncpy(vin, devid, sizeof(vin) - 1);
+    Serial.print("Fake VIN: ");
+    Serial.println(vin);
+  }
+
   teleClient.connect();
   connErrors = 0;
 
