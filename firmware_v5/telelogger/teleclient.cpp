@@ -25,6 +25,7 @@ extern char devid[];
 extern char vin[];
 extern GPS_DATA* gd;
 extern char isoTime[];
+extern char skey[];
 
 bool TeleClientUDP::verifyChecksum(char* data)
 {
@@ -46,6 +47,9 @@ bool TeleClientUDP::notify(byte event, const char* payload)
   netbuf.init(128);
   netbuf.header(devid);
   byte len = sprintf(buf, "EV=%X", (unsigned int)event);
+  netbuf.dispatch(buf, len);
+  // Add server key.
+  len = sprintf(buf, "SK=%s", skey);
   netbuf.dispatch(buf, len);
   len = sprintf(buf, "TS=%lu", millis());
   netbuf.dispatch(buf, len);

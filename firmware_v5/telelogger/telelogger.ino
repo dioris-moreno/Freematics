@@ -73,6 +73,8 @@ uint32_t lastGPStime = 0;
 
 char devid[12] = {0};
 char isoTime[26] = {0};
+// Set server key.
+char skey[32] = SERVER_KEY;
 
 // stats data
 uint32_t lastMotionTime = 0;

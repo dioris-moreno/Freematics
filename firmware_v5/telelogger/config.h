@@ -47,6 +47,7 @@
 #define SERVER_HOST "hub.freematics.com"
 #define SERVER_PORT 0
 #define SERVER_PROTOCOL PROTOCOL_UDP
+#define SERVER_KEY "YOUR_32_CHARACTERS_SERVER_KEY"
 #endif
 
 #if !SERVER_PORT
