@@ -8,6 +8,9 @@
 #define EVENT_ACK 6
 #define EVENT_PING 7
 
+#define CONNECT_RETRIES 20      // LOGIN/RECONNECT ATTEMPTS
+#define CONNECT_RETRY_DELAY 500 // ms
+
 class TeleClient
 {
 public:
